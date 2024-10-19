@@ -82,6 +82,85 @@
 
 
 
+
+
+
+
+				<style>
+					#uptime {
+						position: fixed; /* 固定定位 */
+						bottom: 1000; /* 距离底部0 */
+						left: 0; /* 距离左侧0 */
+						width: 100%; /* 宽度为100% */
+						font-family: Arial, sans-serif;
+						font-size: 18px;
+						color: #333;
+						text-align: center; /* 文本居中 */
+						padding: 15px;
+						background-color: rgba(255, 255, 255, 0.2); /* 背景颜色透明 */
+						border-top: 1px solid ; /* 上边框 */
+						border-radius: 8px 8px 0 0; /* 上边圆角 */
+						box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* 上方阴影 */
+					}
+				
+					.highlight {
+						color: orange; /* 橙色 */
+						font-weight: bold; /* 粗体 */
+					}
+				</style>
+				
+				<div id="uptime">Loading...</div>
+				
+				<script>
+					// 网站建站日期
+					const launchDate = new Date('2024-10-19'); // 修改为您的建站日期
+				
+					// 计算日期差异
+					const calculateUptime = (startDate, endDate) => {
+						const diffTime = endDate - startDate; // 时间差，单位毫秒
+						const diffSeconds = Math.floor(diffTime / 1000); // 秒数
+						const diffMinutes = Math.floor(diffSeconds / 60); // 分钟数
+						const diffHours = Math.floor(diffMinutes / 60); // 小时数
+						const diffDays = Math.floor(diffHours / 24); // 天数
+						const hours = diffHours % 24; // 当前天的小时数
+						const minutes = diffMinutes % 60; // 当前小时的分钟数
+						const seconds = diffSeconds % 60; // 当前分钟的秒数
+				
+						return { diffDays, hours, minutes, seconds };
+					};
+				
+					// 更新显示的时间
+					const updateUptime = () => {
+						const currentDate = new Date();
+						const { diffDays, hours, minutes, seconds } = calculateUptime(launchDate, currentDate);
+						document.getElementById('uptime').innerHTML = 
+							`网站已运行 <span class="highlight">${diffDays}</span> 天 <span class="highlight">${hours}</span> 小时 <span class="highlight">${minutes}</span> 分钟 <span class="highlight">${seconds}</span> 秒`;
+					};
+				
+					// 每秒更新一次显示的时间
+					setInterval(updateUptime, 1000);
+				
+					// 初始更新
+					updateUptime();
+				</script>
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</footer>
 		</div>
 		<canvas id="sakura" style="z-index: 2; position: fixed; left: 0; top: 0; height: 100vh; width: 100vw"> </canvas>
