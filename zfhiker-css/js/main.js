@@ -1,7 +1,5 @@
 /*
-此源码是基于 Dimension 的二次修改
-Github：https://github.com/nianbroken/Personal_Sakura_Guide_Page
-Gitee：https://gitee.com/nianbroken/Personal_Sakura_Guide_Page
+
 */
 (function($) {
 
